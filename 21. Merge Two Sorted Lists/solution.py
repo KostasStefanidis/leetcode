@@ -20,21 +20,19 @@ class Solution:
         if not list1 or not list2:
             return list1 or list2
         
-        stack1 = []
-        stack2 = []
+        stack = []
         
         while(list1):
-            stack1.append(list1.val)
+            stack.append(list1.val)
             list1 = list1.next
         
         while(list2):
-            stack2.append(list2.val)
+            stack.append(list2.val)
             list2 = list2.next
         
-        stack1.extend(stack2)
-        stack1.sort()
+        stack.sort(reverse=True)
         
-        for i, elem in enumerate(reversed(stack1), start=0):
+        for i, elem in enumerate(stack, start=0):
             if i == 0:
                 result = ListNode(elem)
             else:
